@@ -3,6 +3,8 @@ import { supabase } from '../lib/supabase';
 import { useProspectDrawer } from '../lib/nav';
 import ProspectDrawer from './ProspectDrawer';
 import { ThemeToggle } from './ThemeToggle';
+import logoLight from '../assets/logo-light.png';
+import logoDark from '../assets/logo-dark.png';
 
 const NAV = [
   { to: '/followups', label: 'Follow-ups' },
@@ -17,9 +19,9 @@ export default function Layout() {
   return (
     <div className="mx-auto flex min-h-full max-w-[1400px] flex-col px-5 py-4">
       <header className="mb-6 flex items-center justify-between">
-        <div className="flex items-baseline gap-3">
-          <span className="font-display text-lg font-extrabold tracking-tightest text-accent">◆</span>
-          <span className="font-display text-lg font-extrabold tracking-tightest">Outreach Cockpit</span>
+        <div className="flex items-center">
+          <img src={logoLight} alt="Design Innsaeit" className="h-7 w-auto dark:hidden" />
+          <img src={logoDark} alt="Design Innsaeit" className="hidden h-7 w-auto dark:block" />
         </div>
         <nav className="flex items-center gap-1">
           {NAV.map((n) => (
