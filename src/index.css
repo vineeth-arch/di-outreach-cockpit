@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  body {
+    @apply bg-ink text-text font-body antialiased;
+    background-image: radial-gradient(1200px 600px at 80% -10%, rgba(44, 0, 152, 0.35), transparent 60%);
+    background-attachment: fixed;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display font-extrabold tracking-tightest;
+  }
+  ::selection {
+    background: #00ffcf;
+    color: #0d0035;
+  }
+  /* Slim dark scrollbars to match the theme */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #2c0098 transparent;
+  }
+  input,
+  textarea,
+  select {
+    @apply bg-ink-2/60 border border-white/10 rounded-lg px-3 py-2 text-text placeholder:text-text-dim/60
+      focus:outline-none focus:border-mint/60 focus:ring-1 focus:ring-mint/40 transition;
+  }
+  textarea {
+    @apply leading-relaxed;
+  }
+  label {
+    @apply text-sm text-text-dim;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-ink-2/40 border border-white/10 rounded-xl backdrop-blur-sm;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2 text-sm font-semibold
+      transition disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+  .btn-mint {
+    @apply btn bg-mint text-ink hover:brightness-110 active:brightness-95;
+  }
+  .btn-ghost {
+    @apply btn border border-white/15 text-text hover:bg-white/5;
+  }
+  .btn-danger {
+    @apply btn border border-red-400/40 text-red-300 hover:bg-red-400/10;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-semibold;
+  }
+}
