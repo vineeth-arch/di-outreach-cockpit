@@ -40,7 +40,7 @@ export default function Pipeline() {
       <div className="flex items-start justify-between gap-4">
         <div>
           <h1 className="font-display text-2xl font-extrabold tracking-tightest">Pipeline</h1>
-          <p className="mt-1 text-sm text-text-dim">
+          <p className="mt-1 text-sm text-dim">
             Drag prospects across stages to move them through the funnel.
           </p>
         </div>
@@ -70,7 +70,7 @@ export default function Pipeline() {
           <div className="flex items-center justify-between">
             <h2 className="font-display text-xl font-extrabold tracking-tightest">Add prospect</h2>
             <button
-              className="text-text-dim hover:text-text"
+              className="text-dim hover:text-ink"
               onClick={() => setAdding(false)}
               aria-label="Close"
             >
@@ -80,7 +80,7 @@ export default function Pipeline() {
 
           {icp && (
             <div>
-              <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-text-dim/70">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-dim/70">
                 Your ICP — reference
               </p>
               <IcpPanel icp={icp} />

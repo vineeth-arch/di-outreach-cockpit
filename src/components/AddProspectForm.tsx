@@ -169,7 +169,7 @@ export function AddProspectForm({
         </Select>
       </Field>
 
-      {error && <p className="text-sm text-red-300">{error}</p>}
+      {error && <p className="text-sm text-red-600 dark:text-red-300">{error}</p>}
 
       <div className="flex items-center justify-end gap-2 pt-1">
         <button type="button" className="btn-ghost" onClick={onClose} disabled={saving}>

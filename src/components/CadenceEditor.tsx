@@ -25,20 +25,20 @@ export function CadenceEditor({
   return (
     <div className="flex flex-col gap-3">
       <div>
-        <p className="font-medium text-text">Follow-up cadence</p>
-        <p className="text-xs text-text-dim/70">
+        <p className="font-medium text-ink">Follow-up cadence</p>
+        <p className="text-xs text-dim/70">
           Each step is due this many days after the previous touch. Step 1 counts from when a
           prospect enters Contacted.
         </p>
       </div>
 
       {value.length === 0 ? (
-        <p className="text-sm text-text-dim">No steps yet — add one to start the cadence.</p>
+        <p className="text-sm text-dim">No steps yet — add one to start the cadence.</p>
       ) : (
         <ol className="flex flex-col gap-2">
           {value.map((step, i) => (
             <li key={i} className="flex items-center gap-2">
-              <span className="w-16 shrink-0 text-xs font-semibold text-mint">Touch {i + 1}</span>
+              <span className="w-16 shrink-0 text-xs font-semibold text-accent">Touch {i + 1}</span>
               <div className="flex items-center gap-1.5">
                 <input
                   type="number"
@@ -48,7 +48,7 @@ export function CadenceEditor({
                   className="w-20"
                   aria-label={`Days after previous touch for step ${i + 1}`}
                 />
-                <span className="text-xs text-text-dim">days after</span>
+                <span className="text-xs text-dim">days after</span>
               </div>
               <input
                 type="text"

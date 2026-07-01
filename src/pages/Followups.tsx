@@ -18,22 +18,22 @@ const SECTIONS: {
   {
     bucket: 'overdue',
     label: 'Overdue',
-    heading: 'text-red-400',
-    count: 'bg-red-400/15 text-red-300',
+    heading: 'text-red-600 dark:text-red-400',
+    count: 'bg-red-400/15 text-red-600 dark:text-red-300',
     hint: "These slipped. Clear them first.",
   },
   {
     bucket: 'today',
     label: 'Due today',
-    heading: 'text-mint',
-    count: 'bg-mint/15 text-mint',
+    heading: 'text-accent',
+    count: 'bg-accent/15 text-accent',
     hint: "Today's touches.",
   },
   {
     bucket: 'upcoming',
     label: 'Upcoming',
-    heading: 'text-text-dim',
-    count: 'bg-white/5 text-text-dim',
+    heading: 'text-dim',
+    count: 'bg-surface-emphasis text-dim',
     hint: 'On the horizon.',
   },
 ];
@@ -57,7 +57,7 @@ export default function Followups() {
     <div className="flex flex-col gap-8">
       <div>
         <h1 className="text-4xl">Follow-ups</h1>
-        <p className="mt-1 text-text-dim">
+        <p className="mt-1 text-dim">
           Your daily driver — every open thread, sorted by what needs you first.
         </p>
       </div>
@@ -81,7 +81,7 @@ export default function Followups() {
                     {section.label}
                   </h2>
                   <span className={`chip ${section.count}`}>{bucketRows.length}</span>
-                  <span className="text-sm text-text-dim/60">{section.hint}</span>
+                  <span className="text-sm text-dim/60">{section.hint}</span>
                 </div>
                 <div className="flex flex-col gap-3">
                   {bucketRows.map((row) => (

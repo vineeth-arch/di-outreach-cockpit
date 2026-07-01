@@ -30,11 +30,11 @@ export function HeaderStats({ items }: { items: ProspectWithFollowup[] }) {
         <ProminentStat label="Overdue" value={overdue} tone="red" />
       </div>
 
-      <div className="flex flex-wrap gap-x-5 gap-y-1.5 text-xs text-text-dim">
+      <div className="flex flex-wrap gap-x-5 gap-y-1.5 text-xs text-dim">
         {STAGES.map((stage) => (
           <span key={stage} className="inline-flex items-center gap-1.5">
-            <span className="text-text-dim/70">{stage}</span>
-            <span className="font-semibold text-text">
+            <span className="text-dim/70">{stage}</span>
+            <span className="font-semibold text-ink">
               {items.filter((i) => i.stage === stage).length}
             </span>
           </span>
@@ -55,19 +55,19 @@ function ProminentStat({
 }) {
   const toneClasses =
     tone === 'mint'
-      ? 'border-mint/40 bg-mint/10'
+      ? 'border-accent/40 bg-accent/10'
       : tone === 'red'
         ? 'border-red-400/40 bg-red-400/10'
-        : 'border-white/10 bg-ink-2/40';
+        : 'border-line bg-surface-subtle/40';
   const valueClasses =
-    tone === 'mint' ? 'text-mint' : tone === 'red' ? 'text-red-300' : 'text-text';
+    tone === 'mint' ? 'text-accent' : tone === 'red' ? 'text-red-600 dark:text-red-300' : 'text-ink';
 
   return (
     <div className={`card flex min-w-[9rem] flex-col gap-0.5 border px-4 py-3 ${toneClasses}`}>
       <span className={`font-display text-3xl font-extrabold tracking-tightest ${valueClasses}`}>
         {value}
       </span>
-      <span className="text-xs font-medium text-text-dim">{label}</span>
+      <span className="text-xs font-medium text-dim">{label}</span>
     </div>
   );
 }

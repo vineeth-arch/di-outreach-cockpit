@@ -27,7 +27,7 @@ function CheckboxRow({
           <label
             key={opt}
             className={`flex cursor-pointer items-center gap-2 rounded-lg border px-3 py-1.5 text-sm transition ${
-              on ? 'border-mint/60 bg-mint/10 text-text' : 'border-white/10 text-text-dim hover:text-text'
+              on ? 'border-accent/60 bg-accent/10 text-ink' : 'border-line text-dim hover:text-ink'
             }`}
           >
             <input
@@ -81,7 +81,7 @@ export default function Icp() {
     <div className="mx-auto flex max-w-2xl flex-col gap-6">
       <div>
         <h1 className="text-3xl">My ICP</h1>
-        <p className="mt-1 text-sm text-text-dim">
+        <p className="mt-1 text-sm text-dim">
           Your ideal customer profile. This feeds Claude when it drafts outreach so messages fit the
           right accounts.
         </p>
@@ -160,7 +160,7 @@ export default function Icp() {
           <button className="btn-mint" onClick={() => void save()} disabled={saving}>
             {saving ? 'Saving…' : 'Save'}
           </button>
-          {saved && <span className="text-sm text-mint">Saved ✓</span>}
+          {saved && <span className="text-sm text-accent dark:text-spark">Saved ✓</span>}
         </div>
       </Card>
     </div>

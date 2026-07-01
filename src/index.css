@@ -4,7 +4,36 @@
 
 @layer base {
   :root {
+    color-scheme: light;
+    --color-bg: 237 234 226;
+    --color-bg-subtle: 228 224 214;
+    --color-bg-emphasis: 214 209 197;
+    --color-text-emphasis: 22 19 16;
+    --color-text: 82 78 71;
+    --color-text-subtle: 110 106 97;
+    --color-border: 210 204 190;
+    --color-border-subtle: 222 216 204;
+    --color-border-emphasis: 156 152 141;
+    --color-brand: 255 0 108;
+    --color-brand-emphasis: 214 0 89;
+    --color-brand-text: 255 255 255;
+    --color-spark: 255 0 108;
+  }
+  .dark {
     color-scheme: dark;
+    --color-bg: 31 0 110;
+    --color-bg-subtle: 26 5 82;
+    --color-bg-emphasis: 58 20 190;
+    --color-text-emphasis: 255 255 255;
+    --color-text: 226 216 245;
+    --color-text-subtle: 155 143 201;
+    --color-border: 54 32 122;
+    --color-border-subtle: 42 20 102;
+    --color-border-emphasis: 82 51 153;
+    --color-brand: 0 255 207;
+    --color-brand-emphasis: 0 201 163;
+    --color-brand-text: 17 0 59;
+    --color-spark: 255 0 108;
   }
   html,
   body,
@@ -12,9 +41,11 @@
     height: 100%;
   }
   body {
-    @apply bg-ink text-text font-body antialiased;
-    background-image: radial-gradient(1200px 600px at 80% -10%, rgba(44, 0, 152, 0.35), transparent 60%);
+    @apply bg-surface text-ink font-body antialiased;
     background-attachment: fixed;
+  }
+  .dark body {
+    background-image: radial-gradient(1200px 600px at 80% -10%, rgba(58, 20, 190, 0.35), transparent 60%);
   }
   h1,
   h2,
@@ -23,44 +54,44 @@
     @apply font-display font-extrabold tracking-tightest;
   }
   ::selection {
-    background: #00ffcf;
-    color: #0d0035;
+    background: rgb(var(--color-brand));
+    color: rgb(var(--color-brand-text));
   }
-  /* Slim dark scrollbars to match the theme */
+  /* Slim scrollbars to match the theme */
   * {
     scrollbar-width: thin;
-    scrollbar-color: #2c0098 transparent;
+    scrollbar-color: rgb(var(--color-border-emphasis)) transparent;
   }
   input,
   textarea,
   select {
-    @apply bg-ink-2/60 border border-white/10 rounded-lg px-3 py-2 text-text placeholder:text-text-dim/60
-      focus:outline-none focus:border-mint/60 focus:ring-1 focus:ring-mint/40 transition;
+    @apply bg-surface-subtle/60 border border-line rounded-lg px-3 py-2 text-ink placeholder:text-dim/60
+      focus:outline-none focus:border-accent/60 focus:ring-1 focus:ring-accent/40 transition;
   }
   textarea {
     @apply leading-relaxed;
   }
   label {
-    @apply text-sm text-text-dim;
+    @apply text-sm text-dim;
   }
 }
 
 @layer components {
   .card {
-    @apply bg-ink-2/40 border border-white/10 rounded-xl backdrop-blur-sm;
+    @apply bg-surface-subtle/40 border border-line rounded-xl backdrop-blur-sm;
   }
   .btn {
     @apply inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2 text-sm font-semibold
       transition disabled:opacity-40 disabled:cursor-not-allowed;
   }
   .btn-mint {
-    @apply btn bg-mint text-ink hover:brightness-110 active:brightness-95;
+    @apply btn bg-accent text-on-accent hover:bg-accent-emphasis;
   }
   .btn-ghost {
-    @apply btn border border-white/15 text-text hover:bg-white/5;
+    @apply btn border border-line-emphasis text-ink hover:bg-surface-emphasis;
   }
   .btn-danger {
-    @apply btn border border-red-400/40 text-red-300 hover:bg-red-400/10;
+    @apply btn border border-red-400/40 text-red-500 dark:text-red-300 hover:bg-red-400/10;
   }
   .chip {
     @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-semibold;

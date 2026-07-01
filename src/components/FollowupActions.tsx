@@ -51,17 +51,17 @@ export function FollowupActions({
         Mark done
       </button>
 
-      <span className="inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-ink-2/40 px-2 py-1">
-        <span className="pl-1 text-xs text-text-dim">Snooze</span>
+      <span className="inline-flex items-center gap-1.5 rounded-lg border border-line bg-surface-subtle/40 px-2 py-1">
+        <span className="pl-1 text-xs text-dim">Snooze</span>
         <button
-          className="rounded-md px-2 py-0.5 text-xs font-semibold text-text-dim transition hover:bg-white/5 hover:text-text disabled:opacity-40"
+          className="rounded-md px-2 py-0.5 text-xs font-semibold text-dim transition hover:bg-surface-emphasis hover:text-ink disabled:opacity-40"
           onClick={() => void run(() => snoozeFollowup(followup, addDays(isoToday(), 3)))}
           disabled={busy}
         >
           +3d
         </button>
         <button
-          className="rounded-md px-2 py-0.5 text-xs font-semibold text-text-dim transition hover:bg-white/5 hover:text-text disabled:opacity-40"
+          className="rounded-md px-2 py-0.5 text-xs font-semibold text-dim transition hover:bg-surface-emphasis hover:text-ink disabled:opacity-40"
           onClick={() => void run(() => snoozeFollowup(followup, addDays(isoToday(), 7)))}
           disabled={busy}
         >

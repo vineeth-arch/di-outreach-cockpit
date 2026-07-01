@@ -7,14 +7,14 @@ import { FollowupActions } from './FollowupActions';
 
 const ACCENT: Record<Bucket, string> = {
   overdue: 'border-l-red-400',
-  today: 'border-l-mint',
-  upcoming: 'border-l-white/15',
+  today: 'border-l-accent',
+  upcoming: 'border-l-line-emphasis',
 };
 
 const DUE_STYLE: Record<Bucket, string> = {
-  overdue: 'text-red-300',
-  today: 'text-mint',
-  upcoming: 'text-text-dim',
+  overdue: 'text-red-600 dark:text-red-300',
+  today: 'text-accent',
+  upcoming: 'text-dim',
 };
 
 export function FollowupRow({
@@ -42,7 +42,7 @@ export function FollowupRow({
         <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
           <button
             onClick={() => open(prospect.id)}
-            className="font-display text-lg font-extrabold tracking-tightest text-text transition hover:text-mint"
+            className="font-display text-lg font-extrabold tracking-tightest text-ink transition hover:text-accent"
           >
             {prospect.brand_name}
           </button>
@@ -51,15 +51,15 @@ export function FollowupRow({
         </div>
         <div className="flex items-center gap-3 text-sm">
           <span className={`font-semibold ${DUE_STYLE[bucket]}`}>{dueLabel(followup.due_date)}</span>
-          <span className="text-text-dim/70">{stepLabel(followup.sequence_step, cadence)}</span>
+          <span className="text-dim/70">{stepLabel(followup.sequence_step, cadence)}</span>
         </div>
       </div>
 
-      {contactLine && <p className="text-sm text-text-dim">{contactLine}</p>}
+      {contactLine && <p className="text-sm text-dim">{contactLine}</p>}
 
       {followup.reason && (
-        <p className="text-sm text-text">
-          <span className="text-text-dim/70">Why: </span>
+        <p className="text-sm text-ink">
+          <span className="text-dim/70">Why: </span>
           {followup.reason}
         </p>
       )}

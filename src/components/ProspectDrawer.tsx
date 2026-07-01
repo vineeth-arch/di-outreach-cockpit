@@ -162,7 +162,7 @@ export default function ProspectDrawer({
               <SavedIndicator savedAt={savedAt} />
               <button
                 onClick={onClose}
-                className="text-text-dim hover:text-text"
+                className="text-dim hover:text-ink"
                 aria-label="Close"
               >
                 ✕
@@ -195,8 +195,8 @@ export default function ProspectDrawer({
           {followup && (
             <section className="card flex flex-col gap-3">
               <div className="flex items-center justify-between">
-                <h3 className="font-display text-sm text-text">Active follow-up</h3>
-                <span className="text-xs text-text-dim/70">
+                <h3 className="font-display text-sm text-ink">Active follow-up</h3>
+                <span className="text-xs text-dim/70">
                   {stepLabel(followup.sequence_step, settings.followup_cadence)}
                 </span>
               </div>
@@ -275,7 +275,7 @@ export default function ProspectDrawer({
 
           {/* Add note / log activity */}
           <section className="card flex flex-col gap-3">
-            <h3 className="font-display text-sm text-text">Log activity</h3>
+            <h3 className="font-display text-sm text-ink">Log activity</h3>
             <form onSubmit={submitNote} className="flex flex-col gap-3">
               <div className="flex flex-col gap-3 sm:flex-row">
                 <div className="sm:w-48">
@@ -306,7 +306,7 @@ export default function ProspectDrawer({
 
           {/* Timeline */}
           <section className="flex flex-col gap-4">
-            <h3 className="font-display text-sm text-text">Activity</h3>
+            <h3 className="font-display text-sm text-ink">Activity</h3>
             <ActivityTimeline activities={activities} />
           </section>
         </div>
@@ -349,7 +349,7 @@ function SavedIndicator({ savedAt }: { savedAt: number }) {
     return () => clearTimeout(t);
   }, [savedAt]);
   if (!show) return null;
-  return <span className="text-xs text-mint">Saved ✓</span>;
+  return <span className="text-xs text-accent dark:text-spark">Saved ✓</span>;
 }
 
 function EditableText({

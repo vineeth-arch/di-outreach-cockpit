@@ -8,15 +8,15 @@ export default function ActivityTimeline({ activities }: { activities: Activity[
   }
 
   return (
-    <ol className="relative flex flex-col gap-5 border-l border-white/10 pl-5">
+    <ol className="relative flex flex-col gap-5 border-l border-line pl-5">
       {activities.map((a) => (
         <li key={a.id} className="relative">
-          <span className="absolute -left-[1.4rem] top-1.5 h-2 w-2 rounded-full bg-mint" />
+          <span className="absolute -left-[1.4rem] top-1.5 h-2 w-2 rounded-full bg-accent" />
           <div className="flex items-baseline justify-between gap-3">
-            <span className="chip bg-mint/15 text-mint">{a.type}</span>
-            <span className="text-xs text-text-dim/70">{formatDate(a.created_at)}</span>
+            <span className="chip bg-accent/15 text-accent">{a.type}</span>
+            <span className="text-xs text-dim/70">{formatDate(a.created_at)}</span>
           </div>
-          {a.body && <p className="mt-1.5 whitespace-pre-wrap text-sm text-text-dim">{a.body}</p>}
+          {a.body && <p className="mt-1.5 whitespace-pre-wrap text-sm text-dim">{a.body}</p>}
         </li>
       ))}
     </ol>

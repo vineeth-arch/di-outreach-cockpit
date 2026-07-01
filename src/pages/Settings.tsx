@@ -64,7 +64,7 @@ export default function Settings() {
     <div className="mx-auto flex max-w-2xl flex-col gap-6">
       <div>
         <h1 className="text-3xl">Settings</h1>
-        <p className="mt-1 text-sm text-text-dim">
+        <p className="mt-1 text-sm text-dim">
           Your voice, offer, and drafting model — the context Claude uses to write outreach.
         </p>
       </div>
@@ -143,7 +143,7 @@ export default function Settings() {
         <button className="btn-mint" onClick={() => void save()} disabled={saving}>
           {saving ? 'Saving…' : 'Save'}
         </button>
-        {saved && <span className="text-sm text-mint">Saved ✓</span>}
+        {saved && <span className="text-sm text-accent dark:text-spark">Saved ✓</span>}
       </div>
     </div>
   );

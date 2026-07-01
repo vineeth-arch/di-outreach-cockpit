@@ -20,7 +20,7 @@ export function Field({
     <div className="flex flex-col gap-1.5">
       <label className="font-medium">{label}</label>
       {children}
-      {hint && <span className="text-xs text-text-dim/70">{hint}</span>}
+      {hint && <span className="text-xs text-dim/70">{hint}</span>}
     </div>
   );
 }
@@ -51,13 +51,13 @@ export function CategoryBadge({ category }: { category: Category | null }) {
 const WARMTH_DOT: Record<Warmth, string> = {
   Cold: 'bg-sky-400/70',
   'Warm-adjacent': 'bg-amber-400/80',
-  Warm: 'bg-mint',
+  Warm: 'bg-accent',
 };
 
 export function WarmthDot({ warmth }: { warmth: Warmth | null }) {
   if (!warmth) return null;
   return (
-    <span className="inline-flex items-center gap-1.5 text-xs text-text-dim" title={`Warmth: ${warmth}`}>
+    <span className="inline-flex items-center gap-1.5 text-xs text-dim" title={`Warmth: ${warmth}`}>
       <span className={`h-2 w-2 rounded-full ${WARMTH_DOT[warmth]}`} />
       {warmth}
     </span>
@@ -66,8 +66,8 @@ export function WarmthDot({ warmth }: { warmth: Warmth | null }) {
 
 export function Spinner({ label }: { label?: string }) {
   return (
-    <span className="inline-flex items-center gap-2 text-sm text-text-dim">
-      <span className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-mint/40 border-t-mint" />
+    <span className="inline-flex items-center gap-2 text-sm text-dim">
+      <span className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-accent/40 border-t-accent" />
       {label}
     </span>
   );
@@ -76,8 +76,8 @@ export function Spinner({ label }: { label?: string }) {
 export function EmptyState({ title, sub }: { title: string; sub?: string }) {
   return (
     <div className="flex flex-col items-center justify-center gap-1 py-16 text-center">
-      <p className="font-display text-lg text-text">{title}</p>
-      {sub && <p className="text-sm text-text-dim">{sub}</p>}
+      <p className="font-display text-lg text-ink">{title}</p>
+      {sub && <p className="text-sm text-dim">{sub}</p>}
     </div>
   );
 }
@@ -96,7 +96,7 @@ export function Drawer({
   return (
     <div className="fixed inset-0 z-40">
       <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={onClose} />
-      <div className="absolute right-0 top-0 h-full w-full max-w-xl overflow-y-auto border-l border-white/10 bg-ink shadow-2xl">
+      <div className="absolute right-0 top-0 h-full w-full max-w-xl overflow-y-auto border-l border-line bg-surface shadow-2xl">
         {children}
       </div>
     </div>

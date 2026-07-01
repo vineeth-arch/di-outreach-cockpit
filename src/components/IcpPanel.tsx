@@ -17,8 +17,8 @@ function isEmpty(icp: Icp): boolean {
 function Row({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex flex-col gap-0.5">
-      <span className="text-xs font-semibold uppercase tracking-wide text-text-dim/70">{label}</span>
-      <span className="text-sm text-text">{value}</span>
+      <span className="text-xs font-semibold uppercase tracking-wide text-dim/70">{label}</span>
+      <span className="text-sm text-ink">{value}</span>
     </div>
   );
 }
@@ -29,10 +29,10 @@ export function IcpPanel({ icp }: { icp: Icp }) {
 
   return (
     <Card className="flex flex-col gap-3 p-4">
-      <p className="font-display text-sm text-mint">My ICP</p>
+      <p className="font-display text-sm text-accent">My ICP</p>
 
       {isEmpty(icp) ? (
-        <p className="text-sm text-text-dim">
+        <p className="text-sm text-dim">
           No ICP defined yet. Fill it in on the My ICP page to guide who you reach out to.
         </p>
       ) : (
@@ -40,12 +40,12 @@ export function IcpPanel({ icp }: { icp: Icp }) {
           {(categories.length > 0 || regions.length > 0) && (
             <div className="flex flex-wrap gap-1.5">
               {categories.map((c) => (
-                <span key={`c-${c}`} className="chip bg-mint/15 text-mint">
+                <span key={`c-${c}`} className="chip bg-accent/15 text-accent">
                   {c}
                 </span>
               ))}
               {regions.map((r) => (
-                <span key={`r-${r}`} className="chip bg-white/5 text-text-dim">
+                <span key={`r-${r}`} className="chip bg-surface-emphasis text-dim">
                   {r}
                 </span>
               ))}

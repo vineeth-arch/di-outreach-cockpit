@@ -23,15 +23,15 @@ function Column({
   return (
     <div className="flex w-72 shrink-0 flex-col">
       <div className="mb-2 flex items-baseline justify-between px-1">
-        <h3 className="font-display text-sm font-extrabold tracking-tightest text-text">
+        <h3 className="font-display text-sm font-extrabold tracking-tightest text-ink">
           {stage}
         </h3>
-        <span className="text-xs font-semibold text-text-dim">{items.length}</span>
+        <span className="text-xs font-semibold text-dim">{items.length}</span>
       </div>
       <div
         ref={setNodeRef}
-        className={`flex min-h-[60vh] flex-col gap-2 rounded-xl border border-white/5 bg-ink-2/20 p-2 transition ${
-          isOver ? 'border-mint/40 bg-mint/5' : ''
+        className={`flex min-h-[60vh] flex-col gap-2 rounded-xl border border-line-subtle bg-surface-subtle/20 p-2 transition ${
+          isOver ? 'border-accent/40 bg-accent/5' : ''
         }`}
       >
         {items.map((item) => (

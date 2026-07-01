@@ -6,9 +6,9 @@ import { useProspectDrawer } from '../lib/nav';
 import { CategoryBadge, WarmthDot } from './ui';
 
 const DUE_COLOR: Record<'overdue' | 'today' | 'upcoming', string> = {
-  overdue: 'text-red-300',
-  today: 'text-mint',
-  upcoming: 'text-text-dim/70',
+  overdue: 'text-red-600 dark:text-red-300',
+  today: 'text-accent',
+  upcoming: 'text-dim/70',
 };
 
 export function ProspectCard({ item }: { item: ProspectWithFollowup }) {
@@ -34,29 +34,29 @@ export function ProspectCard({ item }: { item: ProspectWithFollowup }) {
       onClick={() => {
         if (!isDragging) open(item.id);
       }}
-      className="card cursor-pointer touch-none select-none p-3 transition hover:-translate-y-0.5 hover:border-white/20 hover:shadow-lg hover:shadow-black/20"
+      className="card cursor-pointer touch-none select-none p-3 transition hover:-translate-y-0.5 hover:border-line-emphasis hover:shadow-lg hover:shadow-black/20"
     >
       <div className="flex items-start justify-between gap-2">
-        <h4 className="font-display text-sm font-extrabold leading-tight tracking-tightest text-text">
+        <h4 className="font-display text-sm font-extrabold leading-tight tracking-tightest text-ink">
           {item.brand_name}
         </h4>
         <CategoryBadge category={item.category} />
       </div>
 
-      <div className="mt-2 flex items-center gap-3 text-xs text-text-dim">
+      <div className="mt-2 flex items-center gap-3 text-xs text-dim">
         {item.country && <span>{item.country}</span>}
         <WarmthDot warmth={item.warmth} />
       </div>
 
       {item.signal && (
-        <p className="mt-2 truncate text-xs text-text-dim/80" title={item.signal}>
+        <p className="mt-2 truncate text-xs text-dim/80" title={item.signal}>
           {item.signal}
         </p>
       )}
 
       {item.followup && bucket && (
         <div className="mt-2.5 flex items-center gap-1.5 text-xs">
-          <span className="h-1.5 w-1.5 rounded-full bg-mint" />
+          <span className="h-1.5 w-1.5 rounded-full bg-accent" />
           <span className={`font-semibold ${DUE_COLOR[bucket]}`}>
             {dueLabel(item.followup.due_date)}
           </span>

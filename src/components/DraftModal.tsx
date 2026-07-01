@@ -63,16 +63,16 @@ export function DraftModal({
       <div className="card relative z-10 flex w-full max-w-2xl flex-col gap-3 p-6">
         <div className="flex items-center justify-between">
           <h3 className="text-xl">{title}</h3>
-          <button onClick={onClose} className="text-text-dim hover:text-text" aria-label="Close">
+          <button onClick={onClose} className="text-dim hover:text-ink" aria-label="Close">
             ✕
           </button>
         </div>
 
         {meta.error && (
-          <p className="rounded-lg bg-red-400/10 px-3 py-2 text-sm text-red-300">{meta.error}</p>
+          <p className="rounded-lg bg-red-400/10 px-3 py-2 text-sm text-red-600 dark:text-red-300">{meta.error}</p>
         )}
         {meta.fallback && (
-          <p className="rounded-lg bg-amber-400/10 px-3 py-2 text-sm text-amber-200">{meta.fallback}</p>
+          <p className="rounded-lg bg-amber-400/10 px-3 py-2 text-sm text-amber-800 dark:text-amber-200">{meta.fallback}</p>
         )}
 
         {loading ? (
@@ -115,9 +115,9 @@ export function DraftModal({
         </div>
 
         {meta.used_model && (
-          <p className="text-right text-xs text-text-dim/70">model: {meta.used_model}</p>
+          <p className="text-right text-xs text-dim/70">model: {meta.used_model}</p>
         )}
-        <p className="text-xs text-text-dim/60">
+        <p className="text-xs text-dim/60">
           Nothing is sent automatically — Copy, Email, or WhatsApp puts you in control of the send.
         </p>
       </div>

@@ -21,9 +21,9 @@ export default function Login() {
   return (
     <div className="grid min-h-full place-items-center p-6">
       <Card className="w-full max-w-sm p-8">
-        <p className="text-sm font-semibold uppercase tracking-widest text-mint">Design Innsaeit</p>
+        <p className="text-sm font-semibold uppercase tracking-widest text-accent">Design Innsaeit</p>
         <h1 className="mt-1 text-3xl">Outreach Cockpit</h1>
-        <p className="mt-2 text-sm text-text-dim">Private. One driver.</p>
+        <p className="mt-2 text-sm text-dim">Private. One driver.</p>
         <form onSubmit={submit} className="mt-6 flex flex-col gap-3">
           <input
             type="email"
@@ -41,7 +41,7 @@ export default function Login() {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          {error && <p className="text-sm text-red-300">{error}</p>}
+          {error && <p className="text-sm text-red-600 dark:text-red-300">{error}</p>}
           <button type="submit" className="btn-mint mt-1" disabled={busy}>
             {busy ? 'Signing in…' : 'Sign in'}
           </button>
